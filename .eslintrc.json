@@ -1,0 +1,41 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+    "jest": true
+  },
+  "extends": [
+    "airbnb",
+    "plugin:react-hooks/recommended",
+    "plugin:react/recommended"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module"
+  },
+  "plugins": [
+    "import",
+    "jsx-a11y",
+    "react-hooks",
+    "react"
+  ],
+  "settings": {
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@src", "./src"]
+        ]
+      }
+    }
+	},
+  "rules": {
+    "no-tabs": "off",
+    "react/forbid-prop-types": ["error", { "forbid": ["any", "array"] }],
+    "react/jsx-props-no-spreading": ["error", { "exceptions": ["App", "Component"] }],
+    "react/react-in-jsx-scope": "off"
+  }
+}
