@@ -1,11 +1,8 @@
 import styled from 'styled-components';
 
 const Section = styled.section`
-  padding: 60px 0px;
+  padding: 20px 0px;
   position: relative;
-  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
-    padding: 40px 0;
-  }
 `;
 
 const Container = styled.div`
@@ -16,9 +13,14 @@ const Container = styled.div`
   justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
-  max-width: ${({ theme }) => theme.grid.container};
-  padding-left: 15px;
-  padding-right: 15px;
+  max-width: 1062px;
+  @media (max-width: 1106px) {
+    max-width: 708px;
+  }
+
+  @media (max-width: 752px) {
+
+  }
 `;
 
 const commonStyle = {

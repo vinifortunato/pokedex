@@ -10,7 +10,7 @@ const defaultTheme = {
     xl: '1199px',
   },
   colors: {
-    background: '#E5E5E5',
+    background: '#FFFFFF',
     dark: '#000000',
     disabled: '#ffffff',
     featured: '#ffffff',

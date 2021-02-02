@@ -1,7 +1,7 @@
 {
   "name": "pokedex",
   "version": "1.0.0",
-  "private": true,
+  "private": false,
   "author": {
     "email": "vinedfs@outlook.com",
     "name": "Vinícius Roberto",

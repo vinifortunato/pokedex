@@ -19,6 +19,11 @@ const GlobalStyle = createGlobalStyle`
 		text-rendering: optimizelegibility;
 	}
 
+  input {
+    border: none;
+    outline: none;
+  }
+
 `;
 
 export default GlobalStyle;
