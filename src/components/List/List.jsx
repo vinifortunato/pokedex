@@ -7,9 +7,13 @@ const List = ({ items }) => {
   return (
     <Style.Section>
       <Style.Container>
-        <Style.List>
-          {map}
-        </Style.List>
+        {map.length > 0 ? (
+          <Style.List>
+            {map}
+          </Style.List>
+        ) : (
+          <Style.NotFound>Pokémon not found!</Style.NotFound>
+        )}
       </Style.Container>
     </Style.Section>
   );

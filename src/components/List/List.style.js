@@ -12,3 +12,11 @@ export const List = styled.ul`
   flex-wrap: wrap;
   list-style: none;
 `;
+
+export const NotFound = styled.p`
+  color: #747476;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  padding: 20px 20px;
+`;

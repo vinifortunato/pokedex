@@ -13,15 +13,40 @@ const GlobalStyle = createGlobalStyle`
 	}
 
 	body {
-    background-color: ${({ theme }) => theme.colors.background};
-		font-family: Arial, sans-serif;
+    background-color: ${({ theme }) => theme.color.background.white};
+		font-family: 'SF Pro Display', Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
 		text-rendering: optimizelegibility;
 	}
 
-  input {
+  button, input {
+    background-color: transparent;
     border: none;
+    font-family: 'SF Pro Display', Arial, sans-serif;
+		-webkit-font-smoothing: antialiased;
     outline: none;
+    text-rendering: optimizelegibility;
+  }
+
+  @font-face {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: ${({ theme }) => theme.font.weight.normal};
+    src: url('./assets/fonts/SFProDisplay-Regular.ttf');
+  }
+
+  @font-face {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: ${({ theme }) => theme.font.weight.medium};
+    src: url('./assets/fonts/SFProDisplay-Medium.ttf');
+  }
+
+  @font-face {
+    font-family: 'SF Pro Display';
+    font-style: normal;
+    font-weight: ${({ theme }) => theme.font.weight.bold};
+    src: url('./assets/fonts/SFProDisplay-Bold.ttf');
   }
 
 `;

@@ -1,29 +1,37 @@
+import { useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import {
   Head, Header, List, Search,
 } from '@src/components';
-import { commonStyle } from '@src/styles';
 import api from '@src/api';
 
-const Home = ({ data }) => (
-  <div>
-    <Head title="Pokédex" />
-    <Header />
-    <commonStyle.Section>
-      <commonStyle.Container>
-        <Search />
-      </commonStyle.Container>
-    </commonStyle.Section>
-    <List items={data.items} />
-  </div>
-);
+const Home = ({ initialData }) => {
+  const [items, setItems] = useState(initialData.items);
+  const onSearchSubmit = useCallback((value) => {
+    if (!value) {
+      setItems(initialData.items);
+      return;
+    }
+    const localResults = items.filter((item) => item.name.toLowerCase() === value.toLowerCase());
+    setItems(localResults);
+  }, [items, initialData.items]);
+
+  return (
+    <div>
+      <Head title="Pokédex" />
+      <Header />
+      <Search onSubmit={onSearchSubmit} />
+      <List items={items} />
+    </div>
+  );
+};
 
 Home.defaultProps = {
-  data: null,
+  initialData: null,
 };
 
 Home.propTypes = {
-  data: PropTypes.shape({
+  initialData: PropTypes.shape({
     count: PropTypes.number,
     next: PropTypes.string,
     previous: PropTypes.string,
@@ -37,13 +45,14 @@ Home.propTypes = {
 };
 
 export async function getStaticProps() {
+  // ?limit=20&offset=20
   const response = await api.get('/pokemon');
 
   const {
     count, next, previous, results,
   } = response.data;
 
-  const data = {
+  const initialData = {
     count,
     next,
     previous,
@@ -52,7 +61,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      data,
+      initialData,
     },
   };
 }

@@ -34,7 +34,7 @@ yarn dev
 ```
 ## Tips
 
-Install `ESLint`, `Stylelint` and `Prettier` extensions in your IDE. For `Visual Studio Code` [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) are recommended.
+Install `ESLint` and `Stylelint` extensions in your IDE. For `Visual Studio Code` [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) and [Stylelint](https://marketplace.visualstudio.com/items?itemName=stylelint.vscode-stylelint) are recommended.
 
 ## Contributing
 
