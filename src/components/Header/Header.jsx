@@ -1,7 +1,7 @@
 import * as Style from './Header.style';
 
 const Header = () => (
-  <Style.Wrapper>
+  <Style.Wrapper data-testid="header">
     <Style.Container>
       <Style.Details>
         <Style.Title>Pokédex</Style.Title>

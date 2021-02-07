@@ -2,26 +2,26 @@ const defaultTheme = {
   grid: {
     container: '1170px',
   },
-  breakpoint: {
+  breakpoints: {
     xs: '346px',
     sm: '576px',
     md: '767px',
     lg: '991px',
     xl: '1199px',
   },
-  color: {
-    background: {
+  colors: {
+    backgrounds: {
       white: '#ffffff',
       light: '#F2F2F2',
       normal: '#E2E2E2',
       dark: '#BFBFBF',
     },
-    text: {
+    texts: {
       black: '#17171B',
       gray: '#747476',
       white: '#ffffff',
     },
-    type: {
+    types: {
       bug: '#8CB230',
       dark: '#58575F',
       default: '#B5B9C4',
@@ -42,7 +42,7 @@ const defaultTheme = {
       steel: '#417D9A',
       water: '#4A90DA',
     },
-    backgroundType: {
+    backgroundTypes: {
       bug: '#8BD674',
       dark: '#6F6E78',
       default: '#B5B9C4',
@@ -65,25 +65,25 @@ const defaultTheme = {
     },
   },
   font: {
-    height: {
+    heights: {
       sm: '18px',
       md: '20px',
       lg: '22px',
     },
-    size: {
+    sizes: {
       xs: '13px',
       sm: '16px',
       md: '18px',
       lg: '22px',
       xl: '26px',
     },
-    weight: {
+    weights: {
       normal: 400,
       medium: 500,
       bold: 700,
     },
   },
-  spacing: {
+  spacings: {
     xxs: '8px',
     xs: '16px',
     sm: '24px',
@@ -92,7 +92,7 @@ const defaultTheme = {
     xl: '48px',
     xxl: '56px',
   },
-  layer: {
+  layers: {
     base: 10,
     menu: 20,
     overlay: 30,

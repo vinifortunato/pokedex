@@ -33,6 +33,13 @@
     }
 	},
   "rules": {
+    "import/no-extraneous-dependencies": ["error", {
+      "devDependencies": [
+        "src/tests/setupTests.jsx",
+        "src/redux/store.js",
+        "src/**/*.test.{js,jsx}"
+      ]
+    }],
     "no-tabs": "off",
     "react/forbid-prop-types": ["error", { "forbid": ["any", "array"] }],
     "react/jsx-props-no-spreading": ["error", { "exceptions": ["App", "Component"] }],

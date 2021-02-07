@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import hexToRgba from '@src/utils';
+import { hexToRgba } from '@src/utils';
 
 export const Wrapper = styled.li`
   border-radius: 10px;
-  box-shadow: 0px 10px 20px ${({ theme, boxShadowColor }) => hexToRgba(theme.color.backgroundType[boxShadowColor], 0.4)};
+  box-shadow: 0px 10px 20px ${({ theme, boxShadowColor }) => hexToRgba(theme.colors.backgroundTypes[boxShadowColor], 0.4)};
   margin: 40px 10px 0px 10px;
   max-width: 334px;
   transition: box-shadow 300ms ease-in-out;
@@ -19,7 +19,7 @@ export const Wrapper = styled.li`
 `;
 
 export const Container = styled.div`
-  background-color: ${({ theme, backgroundColor }) => theme.color.backgroundType[backgroundColor]};
+  background-color: ${({ theme, backgroundColor }) => theme.colors.backgroundTypes[backgroundColor]};
   background-image: url('/assets/images/list-item-pattern.svg'), url('/assets/images/list-item-bg.svg');
   background-position: 36% 10%, right center;
   background-repeat: no-repeat;
@@ -36,14 +36,14 @@ export const Container = styled.div`
 export const Details = styled.div``;
 
 export const Id = styled.p`
-  color: #17171B;
+  color: ${({ theme }) => theme.colors.texts.black};
   font-size: 12px;
   font-weight: 700;
   line-height: 14px;
 `;
 
 export const Name = styled.p`
-  color: white;
+  color: ${({ theme }) => theme.colors.backgrounds.white};
   font-size: 26px;
   font-weight: 700;
   line-height: 31px;

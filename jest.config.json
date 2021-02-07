@@ -1,0 +1,35 @@
+{
+  "bail": true,
+  "maxConcurrency": 2,
+  "moduleNameMapper": {
+    "^@src(.*)$": "<rootDir>/src$1"
+  },
+  "testPathIgnorePatterns": [
+    "<rootDir>/.next/",
+    "<rootDir>/build/",
+    "<rootDir>/node_modules/"
+  ],
+  "setupFilesAfterEnv": ["<rootDir>/src/tests/setupTests.jsx"],
+  "clearMocks": true,
+  "collectCoverage": true,
+  "collectCoverageFrom": [
+    "./src/api/**/*.{js,jsx}",
+    "./src/components/**/*.{js,jsx}",
+    "./src/config/**/*.{js,jsx}",
+    "./src/utils/**/*.{js,jsx}",
+    "!./src/**/*.stories.{js,jsx}"
+  ],
+  "coverageThreshold": {
+    "global": {
+      "branches": 100,
+      "functions": 100,
+      "lines": 100,
+      "statements": 100
+    }
+  },
+  "coverageReporters": [
+    "text",
+    "cobertura",
+    "lcov"
+  ]
+}

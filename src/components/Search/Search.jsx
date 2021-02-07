@@ -7,9 +7,7 @@ const Search = ({ onSubmit }) => {
 
   const handleSubmit = useCallback((event) => {
     event.preventDefault();
-    if (onSubmit) {
-      onSubmit(searchValue);
-    }
+    onSubmit(searchValue);
   }, [onSubmit, searchValue]);
 
   const handleOnInputChange = useCallback((event) => {
@@ -17,12 +15,16 @@ const Search = ({ onSubmit }) => {
   }, []);
 
   return (
-    <Style.Section>
+    <Style.Section data-testid="search">
       <Style.Container>
         <Style.Form onSubmit={handleSubmit}>
           <Style.FormContent>
-            <Style.Button type="submit" />
-            <Style.Input placeholder="What Pokémon are you looking for?" onChange={handleOnInputChange} />
+            <Style.Button type="submit" data-testid="search-submit" />
+            <Style.Input
+              data-testid="search-input"
+              placeholder="What Pokémon are you looking for?"
+              onChange={handleOnInputChange}
+            />
           </Style.FormContent>
         </Style.Form>
       </Style.Container>
@@ -30,12 +32,8 @@ const Search = ({ onSubmit }) => {
   );
 };
 
-Search.defaultProps = {
-  onSubmit: null,
-};
-
 Search.propTypes = {
-  onSubmit: PropTypes.func,
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default Search;

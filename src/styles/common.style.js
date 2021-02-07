@@ -11,8 +11,6 @@ const Container = styled.div`
   align-items: center;
   display: flex;
   flex: 1;
-  height: 100%;
-  justify-content: space-between;
   margin-left: auto;
   margin-right: auto;
   max-width: 1082px;

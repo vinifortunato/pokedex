@@ -9,6 +9,7 @@ const instance = axios.create({
 const get = (url) => instance.get(url);
 
 const api = {
+  instance,
   get,
 };
 

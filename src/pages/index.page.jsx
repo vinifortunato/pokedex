@@ -1,13 +1,19 @@
 import { useState, useCallback } from 'react';
+import { useRouter } from 'next/router';
 import PropTypes from 'prop-types';
 import {
   Head, Header, List, Search,
 } from '@src/components';
+import { useDispatch } from 'react-redux';
+import { selectPokemon } from '@src/redux/modules/pokemon';
 import api from '@src/api';
 
 const Home = ({ initialData }) => {
+  const router = useRouter();
+  const dispatch = useDispatch();
+
   const [items, setItems] = useState(initialData.items);
-  const onSearchSubmit = useCallback((value) => {
+  const handleOnSearchSubmit = useCallback((value) => {
     if (!value) {
       setItems(initialData.items);
       return;
@@ -16,12 +22,17 @@ const Home = ({ initialData }) => {
     setItems(localResults);
   }, [items, initialData.items]);
 
+  const handleOnClickListItem = useCallback((item) => {
+    dispatch(selectPokemon(item));
+    router.push(`/${item.name}`);
+  }, [dispatch, router]);
+
   return (
     <div>
       <Head title="Pokédex" />
       <Header />
-      <Search onSubmit={onSearchSubmit} />
-      <List items={items} />
+      <Search onSubmit={handleOnSearchSubmit} />
+      <List items={items} onClick={handleOnClickListItem} />
     </div>
   );
 };

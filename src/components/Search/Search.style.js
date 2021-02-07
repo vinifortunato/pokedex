@@ -42,7 +42,7 @@ export const Button = styled.button`
   height: 60px;
   padding: 0px 0px 0px 46px;
 
-  @media (max-width: ${({ theme }) => theme.breakpoint.xs}) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.xs}) {
     padding: 0px 0px 0px 36px;
   }
 `;

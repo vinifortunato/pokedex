@@ -13,7 +13,6 @@ export const Wrapper = styled.section`
 
 export const Container = styled(commonStyle.Container)`
   align-items: flex-start;
-  flex-direction: column;
 `;
 
 export const Details = styled.div`
@@ -23,7 +22,7 @@ export const Details = styled.div`
 export const Title = styled.h1`
   color: #17171B;
   font-size: 32px;
-  font-weight: ${({ theme }) => theme.font.weight.bold};
+  font-weight: ${({ theme }) => theme.font.weights.bold};
   line-height: 38px;
   margin-bottom: 10px;
 `;
@@ -31,7 +30,7 @@ export const Title = styled.h1`
 export const Subtitle = styled.p`
   color: #747476;
   font-size: 16px;
-  font-weight: ${({ theme }) => theme.font.weight.normal};
+  font-weight: ${({ theme }) => theme.font.weights.regular};
   line-height: 19px;
   margin-bottom: 25px;
 `;
