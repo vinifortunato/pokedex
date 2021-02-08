@@ -29,6 +29,7 @@ const Home = ({ initialData }) => {
 
     const urlsMap = filtered.map((item) => item.url);
     if (urlsMap.length <= 0) {
+      setLoading(false);
       return;
     }
     const load = async (urls) => {

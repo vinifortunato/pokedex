@@ -34,7 +34,7 @@ const Search = ({ defaultValue, onSubmit, placeholder }) => {
 };
 
 Search.defaultProps = {
-  defaultValue: null,
+  defaultValue: '',
   placeholder: 'What Pokémon are you looking for?',
 };
 
