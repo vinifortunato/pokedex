@@ -25,7 +25,7 @@
 
 ## Production environment
 
-- Vercel: <https://pokedex-vinesky.vercel.app/>
+- Vercel: <https://pokedex-x.vercel.app/>
 
 ## Getting Started
 
@@ -35,6 +35,11 @@ yarn
 
 ```bash
 yarn dev
+```
+## Storybook
+
+```bash
+yarn storybook
 ```
 ## Tips
 
