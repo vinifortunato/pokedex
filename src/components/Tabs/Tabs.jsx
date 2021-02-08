@@ -1,30 +1,9 @@
 import PropTypes from 'prop-types';
 import { useState, useEffect, useCallback } from 'react';
-import TabAbout from './TabAbout';
-import TabEvolution from './TabEvolution';
-import TabStats from './TabStats';
 import * as Style from './Tabs.style';
 
-const Tabs = ({ featuredColor }) => {
-  const tabs = [
-    {
-      id: 'tab-about',
-      label: 'About',
-      component: TabAbout,
-    },
-    {
-      id: 'tab-stats',
-      label: 'Stats',
-      component: TabStats,
-    },
-    {
-      id: 'tab-evolution',
-      label: 'Evolution',
-      component: TabEvolution,
-    },
-  ];
-
-  const [selectedTab, setSelectedTab] = useState(tabs[0].id);
+const Tabs = ({ defaultValue, tabs, featuredColor }) => {
+  const [selectedTab, setSelectedTab] = useState(defaultValue || tabs[0]?.id);
 
   const getContentHeight = useCallback((tabId) => {
     const tabRef = document.getElementById(tabId);
@@ -58,10 +37,11 @@ const Tabs = ({ featuredColor }) => {
     </Style.NavItem>
   ));
 
-  const tabsMap = tabs.map(({ id, component }) => {
+  const tabsMap = tabs.map(({ id, component, content }) => {
     const Tab = component;
     return (
       <Tab
+        content={content}
         featuredColor={featuredColor}
         id={id}
         key={id}
@@ -87,11 +67,22 @@ const Tabs = ({ featuredColor }) => {
 };
 
 Tabs.defaultProps = {
+  defaultValue: null,
   featuredColor: '#17171B',
+  tabs: [],
 };
 
 Tabs.propTypes = {
+  defaultValue: PropTypes.string,
   featuredColor: PropTypes.string,
+  tabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      label: PropTypes.string.isRequired,
+      component: PropTypes.elementType.isRequired,
+      content: PropTypes.object,
+    }),
+  ),
 };
 
 export default Tabs;

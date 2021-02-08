@@ -55,15 +55,6 @@ export const Name = styled.p`
 
 export const Tags = styled.div`
   display: flex;
-  transition: opacity 300ms ease-in-out;
-
-  &.in {
-    opacity: 1;
-  }
-
-  &.out {
-    opacity: 0;
-  }
 `;
 
 export const ImageContainer = styled.div`
@@ -71,16 +62,7 @@ export const ImageContainer = styled.div`
   height: 130px;
   position: absolute;
   right: 10px;
-  transition: opacity 300ms ease-in-out;
   width: 130px;
-
-  &.in {
-    opacity: 1;
-  }
-
-  &.out {
-    opacity: 0;
-  }
 `;
 
 export const Image = styled.img`

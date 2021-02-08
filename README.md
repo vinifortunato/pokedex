@@ -18,10 +18,14 @@
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Storybook](https://storybook.js.org/)
 
-## Development environment access
+## Development environment
 
 - Pokédex: <http://localhost:3000>
 - Storybook: <http://localhost:3001>
+
+## Production environment
+
+- Vercel: <https://pokedex-vinesky.vercel.app/>
 
 ## Getting Started
 

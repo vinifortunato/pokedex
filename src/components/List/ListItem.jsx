@@ -1,82 +1,61 @@
-import PropTypes from 'prop-types';
-import { useState, useEffect, useCallback } from 'react';
+import { useCallback } from 'react';
 import { Tag } from '@src/components';
 import { zeroPad } from '@src/utils';
-import api from '@src/api';
+import PropTypes from 'prop-types';
 import * as Style from './ListItem.style';
 
 const ListItem = ({ item, onClick }) => {
-  const [data, setData] = useState(null);
-
-  useEffect(() => {
-    const load = async () => {
-      const response = await api.get(`/pokemon/${item.name}`);
-      const {
-        id, sprites, types, stats,
-      } = response.data;
-      const filteredData = {
-        id,
-        name: item.name,
-        image: sprites.other['official-artwork'].front_default,
-        types,
-        stats,
-      };
-      setData(filteredData);
-    };
-    load();
-  }, [item]);
-
   const handleOnClick = useCallback((event) => {
     event.preventDefault();
-    if (!data || !onClick) {
-      return;
-    }
-    onClick(data);
-  }, [data, onClick]);
+    onClick(item);
+  }, [item, onClick]);
 
   return (
-    <Style.Wrapper boxShadowColor={data ? data?.types[0].type.name : 'default'}>
+    <Style.Wrapper boxShadowColor={item.types[0].type.name}>
       <Style.Container
         data-testid={`list-item-${item.name.toLowerCase()}`}
         onClick={handleOnClick}
-        backgroundColor={data ? data?.types[0].type.name : 'default'}
+        backgroundColor={item.types[0].type.name}
       >
         <Style.Details>
-          <Style.Id>{data ? `#${zeroPad(data.id, 3)}` : ''}</Style.Id>
+          <Style.Id>{`#${zeroPad(item.id, 3)}`}</Style.Id>
           <Style.Name>{item.name}</Style.Name>
-          <Style.Tags className={data ? 'in' : 'out'}>
-            {data && (
-            <>
-              {data.types.map(({ type }) => (
-                <Tag key={type.name} label={type.name} backgroundColor={type.name} />
-              ))}
-            </>
-            )}
+          <Style.Tags>
+            {item.types.map(({ type }) => (
+              <Tag key={type.name} label={type.name} backgroundColor={type.name} />
+            ))}
           </Style.Tags>
         </Style.Details>
-        <Style.ImageContainer className={data ? 'in' : 'out'}>
-          <>
-            {data && (
-              <Style.Image src={data.image} alt={item.name} />
-            )}
-          </>
+        <Style.ImageContainer>
+          {item && (
+            <Style.Image src={item.sprites.other['official-artwork'].front_default} alt={item.name} />
+          )}
         </Style.ImageContainer>
       </Style.Container>
     </Style.Wrapper>
   );
 };
 
-ListItem.defaultProps = {
-  item: null,
-  onClick: null,
-};
-
 ListItem.propTypes = {
   item: PropTypes.shape({
-    name: PropTypes.string,
-    url: PropTypes.string,
-  }),
-  onClick: PropTypes.func,
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    types: PropTypes.arrayOf(
+      PropTypes.shape({
+        type: PropTypes.shape({
+          name: PropTypes.string.isRequired,
+        }),
+      }),
+    ).isRequired,
+    sprites: PropTypes.shape({
+      other: PropTypes.shape({
+        'official-artwork': PropTypes.shape({
+          front_default: PropTypes.string.isRequired,
+        }).isRequired,
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
+  onClick: PropTypes.func.isRequired,
 };
 
 export default ListItem;

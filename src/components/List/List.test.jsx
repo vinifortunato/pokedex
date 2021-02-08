@@ -1,7 +1,5 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import MockAdapter from 'axios-mock-adapter';
-import api from '@src/api';
 import List from './List';
 
 describe('List Component', () => {
@@ -10,15 +8,11 @@ describe('List Component', () => {
     expect(screen.getByTestId('list')).toBeInTheDocument();
   });
 
-  it('should render items and load data correctly', async () => {
+  it('should render items correctly', () => {
     const onClick = jest.fn();
-    const items = [
-      { name: 'bulbasaur' },
-    ];
-
-    const mockAdapter = new MockAdapter(api.instance);
-    const mockResponse = {
+    const item = {
       id: 1,
+      name: 'bulbasaur',
       sprites: {
         other: {
           'official-artwork': {
@@ -37,32 +31,11 @@ describe('List Component', () => {
       ],
       stats: null,
     };
+    const items = [item];
 
-    mockAdapter.onGet(`${api.instance.defaults.baseURL}pokemon/bulbasaur`).reply(200, mockResponse);
     render(<List items={items} onClick={onClick} />, { wrapper: global.wrapper });
 
     userEvent.click(screen.getByTestId('list-item-bulbasaur'));
-    expect(onClick).toHaveBeenCalledTimes(0);
-
-    await waitFor(() => screen.getByTestId('list-item-bulbasaur'));
-    userEvent.click(screen.getByTestId('list-item-bulbasaur'));
-
-    const expected = {
-      id: 1,
-      name: 'bulbasaur',
-      image: 'image-url',
-      types: [
-        {
-          slot: 1,
-          type: {
-            name: 'water',
-            url: '',
-          },
-        },
-      ],
-      stats: null,
-    };
-
-    expect(onClick).toBeCalledWith(expected);
+    expect(onClick).toBeCalledWith(item);
   });
 });

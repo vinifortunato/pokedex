@@ -6,11 +6,14 @@ const instance = axios.create({
   timeout: config.timeout,
 });
 
-const get = (url) => instance.get(url);
+const get = (url) => instance.get(url).then((data) => data).catch(() => null);
+
+const getAll = (urls) => Promise.all(urls.map((url) => get(url)));
 
 const api = {
-  instance,
   get,
+  getAll,
+  instance,
 };
 
 export default api;

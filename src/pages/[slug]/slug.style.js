@@ -5,7 +5,7 @@ import { hexToRgba } from '@src/utils';
 export const Page = styled.div`
   background-color: white;
   background-image: ${({ theme, backgroundColor }) => (
-    `linear-gradient(${theme.colors.backgroundTypes[backgroundColor]} 25%, ${theme.colors.backgrounds.white} 60%)`
+    `linear-gradient(${theme.colors.backgroundTypes[backgroundColor]} 25%, ${theme.colors.backgrounds.white})`
   )};
   height: 100%;
   overflow: hidden;
@@ -43,13 +43,15 @@ export const BackButton = styled.button`
   width: 20px;
 `;
 
-export const NotFoundContainer = styled.div`
+export const MessageContainer = styled.div`
   display: flex;
   justify-content: center;
   padding: 50px 0px;
 `;
 
-export const NotFoundText = styled.p`
-  font-size: 18px;
-  font-weight: 400;
+export const Message = styled.p`
+  color: #17171B;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 25px;
 `;

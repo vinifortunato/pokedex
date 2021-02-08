@@ -9,6 +9,7 @@ export const Container = styled(commonStyle.Container)``;
 
 export const List = styled.ul`
   display: flex;
+  flex: 1;
   flex-wrap: wrap;
   list-style: none;
 `;

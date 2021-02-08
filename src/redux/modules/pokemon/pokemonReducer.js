@@ -1,15 +1,20 @@
 import { actionTypes } from './pokemonActions';
 
 const initialState = {
-  selected: null,
+  loaded: [],
 };
 
 const pokemonReducer = (state = initialState, action) => {
   switch (action.type) {
-    case actionTypes.SELECT_POKEMON:
+    case actionTypes.ADD_POKEMON:
       return {
         ...state,
-        selected: action.pokemon,
+        loaded: [...state.loaded, action.pokemon],
+      };
+    case actionTypes.ADD_POKEMONS:
+      return {
+        ...state,
+        loaded: state.loaded.concat(action.pokemons),
       };
     default:
       return state;

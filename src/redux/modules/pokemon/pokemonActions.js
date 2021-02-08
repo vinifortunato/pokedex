@@ -1,8 +1,14 @@
 export const actionTypes = {
-  SELECT_POKEMON: 'SELECT_POKEMON',
+  ADD_POKEMON: 'ADD_POKEMON',
+  ADD_POKEMONS: 'ADD_POKEMONS',
 };
 
-export const selectPokemon = (pokemon) => ({
-  type: actionTypes.SELECT_POKEMON,
+export const addPokemon = (pokemon) => ({
+  type: actionTypes.ADD_POKEMON,
   pokemon,
+});
+
+export const addPokemons = (pokemons) => ({
+  type: actionTypes.ADD_POKEMONS,
+  pokemons,
 });

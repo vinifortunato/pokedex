@@ -48,31 +48,3 @@ export const Tabs = styled.div`
   transition: height 200ms ease-in-out;
   width: 100%;
 `;
-
-export const Tab = styled.div`
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  left: 0px;
-  opacity: 0;
-  position: absolute;
-  top: 0px;
-  transition: opacity 400ms ease-in-out;
-
-  &.in {
-    opacity: 1;
-  }
-
-  &.out {
-    opacity: 0;
-    pointer-events: none;
-  }
-`;
-
-export const Title = styled.p`
-  color: ${({ theme, textColor }) => theme.colors.types[textColor]};
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 19px;
-  margin-bottom: 20px;
-`;
