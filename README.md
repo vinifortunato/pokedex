@@ -12,9 +12,9 @@
 - [Node.js](https://nodejs.org/)
 - [Yarn](https://yarnpkg.com/)
 - [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+- [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 - [Styled Components](https://styled-components.com/)
 - [Redux](https://redux.js.org/)
-- [PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 - [Jest](https://jestjs.io/)
 - [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/)
 - [Storybook](https://storybook.js.org/)
