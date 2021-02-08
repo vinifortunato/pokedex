@@ -15,22 +15,22 @@ export const Form = styled.form`
 
 export const FormContent = styled.div`
   align-items: center;
-  background-color: #F2F2F2;
+  background-color: ${({ theme }) => theme.colors.backgrounds.light};
   border-radius: 10px;
   display: flex;
   flex: 1;
   justify-content: center;
-  margin: 0px 10px;
+  margin: 0px ${({ theme }) => theme.spacings.xs};
   position: relative;
 `;
 
 export const Input = styled.input`
-  color: #747476;
+  color: ${({ theme }) => theme.colors.texts.gray};
   display: flex;
   flex: 1;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 19px;
+  font-size: ${({ theme }) => theme.font.sizes.sm};
+  font-weight: ${({ theme }) => theme.font.weights.regular};
+  line-height: ${({ theme }) => theme.font.heights.sm};
   padding: 20.5px 10px 20.5px 0px;
 `;
 

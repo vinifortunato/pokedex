@@ -23,10 +23,10 @@ export const Tab = styled.div`
 
 export const Title = styled.p`
   color: ${({ theme, textColor }) => theme.colors.types[textColor]};
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 19px;
-  margin-bottom: 10px;
+  font-size: ${({ theme }) => theme.font.sizes.sm};
+  font-weight: ${({ theme }) => theme.font.weights.bold};
+  line-height: ${({ theme }) => theme.font.heights.sm};
+  margin-bottom: ${({ theme }) => theme.spacings.xs};
 `;
 
 export const TableContainer = styled.div`
@@ -40,37 +40,37 @@ export const Table = styled.table`
   border-spacing: 0px 10px;
   width: 250px;
 
-  @media (max-width: 674px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.md}) {
     width: 100%;
   }
 `;
 
 export const TableText = styled.td`
-  color: #17171B;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 14px;
+  color: ${({ theme }) => theme.colors.texts.black};
+  font-size: ${({ theme }) => theme.font.sizes.xs};
+  font-weight: ${({ theme }) => theme.font.weights.medium};
+  line-height: ${({ theme }) => theme.font.heights.xs};
 `;
 
 export const TableValue = styled.td`
-  color: #747476;
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 19px;
+  color: ${({ theme }) => theme.colors.texts.gray};
+  font-size: ${({ theme }) => theme.font.sizes.sm};
+  font-weight: ${({ theme }) => theme.font.weights.regular};
+  line-height: ${({ theme }) => theme.font.heights.sm};
   text-align: right;
 `;
 
 export const TableFeaturedValue = styled.td`
-  color: #747476;
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 19px;
+  color: ${({ theme }) => theme.colors.texts.gray};
+  font-size: ${({ theme }) => theme.font.sizes.sm};
+  font-weight: ${({ theme }) => theme.font.weights.bold};
+  line-height: ${({ theme }) => theme.font.heights.sm};
   text-align: right;
 `;
 
 export const NotAvailable = styled.p`
-  color: #747476;
-  font-size: 16px;
-  line-height: 19px;
-  margin-bottom: 5px;
+  color: ${({ theme }) => theme.colors.texts.gray};
+  font-size: ${({ theme }) => theme.font.sizes.sm};
+  line-height: ${({ theme }) => theme.font.heights.sm};
+  margin-bottom: ${({ theme }) => theme.spacings.xxs};
 `;

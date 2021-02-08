@@ -1,13 +1,13 @@
 const defaultTheme = {
   grid: {
-    container: '1170px',
+    container: '1082px',
   },
   breakpoints: {
     xs: '346px',
     sm: '576px',
-    md: '767px',
-    lg: '991px',
-    xl: '1199px',
+    md: '674px',
+    lg: '751px',
+    xl: '1106px',
   },
   colors: {
     backgrounds: {
@@ -66,31 +66,34 @@ const defaultTheme = {
   },
   font: {
     heights: {
-      sm: '18px',
-      md: '20px',
-      lg: '22px',
+      xs: '14px',
+      sm: '19px',
+      md: '31px',
+      lg: '38px',
+      xl: '119px',
     },
     sizes: {
-      xs: '13px',
+      xs: '12px',
       sm: '16px',
       md: '18px',
-      lg: '22px',
-      xl: '26px',
+      lg: '26px',
+      xl: '32px',
+      xxl: '100px',
     },
     weights: {
-      normal: 400,
+      regular: 400,
       medium: 500,
       bold: 700,
     },
   },
   spacings: {
-    xxs: '8px',
-    xs: '16px',
-    sm: '24px',
-    md: '32px',
+    xxs: '5px',
+    xs: '10px',
+    sm: '15px',
+    md: '20px',
     lg: '40px',
-    xl: '48px',
-    xxl: '56px',
+    xl: '50px',
+    xxl: '100px',
   },
   layers: {
     base: 10,

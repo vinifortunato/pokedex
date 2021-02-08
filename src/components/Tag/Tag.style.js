@@ -6,19 +6,19 @@ export const Wrapper = styled.span`
   border-radius: 3px;
   display: flex;
   justify-content: center;
-  margin-top: 5px;
-  padding: 5px;
+  margin-top: ${({ theme }) => theme.spacings.xxs};
+  padding: ${({ theme }) => theme.spacings.xxs};
 
   &:not(:first-child) {
-    margin-left: 5px;
+    margin-left: ${({ theme }) => theme.spacings.xxs};
   }
 `;
 
 export const Label = styled.p`
-  color: #ffffff;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 14px;
+  color: ${({ theme }) => theme.colors.texts.white};
+  font-size: ${({ theme }) => theme.font.sizes.xs};
+  font-weight: ${({ theme }) => theme.font.weights.medium};
+  line-height: ${({ theme }) => theme.font.heights.xs};
 
   &::first-letter {
     text-transform: uppercase;
@@ -27,6 +27,6 @@ export const Label = styled.p`
 
 export const Image = styled.img`
   height: 14px;
-  margin-right: 5px;
+  margin-right: ${({ theme }) => theme.spacings.xxs};
   width: auto;
 `;

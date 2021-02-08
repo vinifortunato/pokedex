@@ -90,14 +90,30 @@ export default {
       control: 'object',
       defaultValue: defaultItems,
     },
+    loading: {
+      control: 'boolean',
+      defaultValue: false,
+    },
+    loadingText: {
+      control: 'text',
+      defaultValue: 'Loading, please wait...',
+    },
     onClick: {
       action: 'onClick',
     },
   },
 };
 
-export const Default = ({ emptyText, items, onClick }) => (
-  <List emptyText={emptyText} items={items} onClick={onClick} />
+export const Default = ({
+  emptyText, items, loadingText, loading, onClick,
+}) => (
+  <List
+    emptyText={emptyText}
+    items={items}
+    loading={loading}
+    loadingText={loadingText}
+    onClick={onClick}
+  />
 );
 
 Default.defaultProps = List.defaultProps;

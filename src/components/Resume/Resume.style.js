@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import { commonStyle } from '@src/styles';
 
 export const Section = styled.section`
-  padding-bottom: 20px;
-  padding-top: 20px;
+  padding-bottom: ${({ theme }) => theme.spacings.md};
+  padding-top: ${({ theme }) => theme.spacings.md};
 `;
 
 export const Container = styled(commonStyle.Container)`
@@ -28,16 +28,16 @@ export const Details = styled.div``;
 
 export const Id = styled.p`
   color: ${({ theme }) => theme.colors.texts.black};
-  font-size: 16px;
-  font-weight: 700;
-  line-height: 19px;
+  font-size: ${({ theme }) => theme.font.sizes.sm};
+  font-weight: ${({ theme }) => theme.font.weights.bold};
+  line-height: ${({ theme }) => theme.font.heights.sm};
 `;
 
 export const Title = styled.p`
   color: ${({ theme }) => theme.colors.backgrounds.white};
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 38px;
+  font-size: ${({ theme }) => theme.font.sizes.xl};
+  font-weight: ${({ theme }) => theme.font.weights.bold};
+  line-height: ${({ theme }) => theme.font.heights.lg};
 
   &::first-letter {
     text-transform: uppercase;

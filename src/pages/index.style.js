@@ -10,13 +10,13 @@ export const LoadMoreWrapper = styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: ${({ theme }) => theme.spacings.md};
 `;
 
 export const ButtonLoadMore = styled.button`
   color: ${({ theme }) => theme.colors.texts.gray};
   cursor: pointer;
-  padding: 10px;
+  padding: ${({ theme }) => theme.spacings.xs};
 
   &:hover {
     color: ${({ theme }) => theme.colors.texts.black};

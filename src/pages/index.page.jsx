@@ -15,6 +15,7 @@ const Home = ({ initialData }) => {
 
   const localData = useSelector((state) => state.pokemon.loaded);
 
+  const [loading, setLoading] = useState(true);
   const [currentData, setCurrentData] = useState(initialData);
   const [searchResult, setSearchResult] = useState(null);
 
@@ -32,6 +33,7 @@ const Home = ({ initialData }) => {
     }
     const load = async (urls) => {
       const response = await api.getAll(urls);
+      setLoading(false);
       const responseMap = response.map((element) => element.data);
       dispatch(addPokemons(responseMap));
     };
@@ -51,6 +53,7 @@ const Home = ({ initialData }) => {
     }
     const search = async () => {
       const response = await api.get(`/pokemon/${searchValue.toLowerCase()}`);
+      setLoading(false);
       if (!response) {
         setSearchResult([]);
         return;
@@ -59,6 +62,8 @@ const Home = ({ initialData }) => {
       dispatch(addPokemon(data));
       setSearchResult([data]);
     };
+    setSearchResult([]);
+    setLoading(true);
     search();
   }, [dispatch, localData]);
 
@@ -67,6 +72,9 @@ const Home = ({ initialData }) => {
   }, [router]);
 
   const handleButtonLoadMoreClick = useCallback(() => {
+    if (loading) {
+      return;
+    }
     const loadMore = async () => {
       const response = await api.get(currentData.next);
       const indexes = response.data;
@@ -76,20 +84,22 @@ const Home = ({ initialData }) => {
       const allResponses = await api.getAll(urlsMap);
       const responsesMap = allResponses.map((element) => element.data);
       dispatch(addPokemons(responsesMap));
+      setLoading(false);
     };
+    setLoading(true);
     loadMore();
-  }, [currentData.next, dispatch, filterExisting]);
+  }, [currentData.next, dispatch, filterExisting, loading]);
 
   return (
     <Style.Page>
       <Head title="Pokédex" />
       <Header />
       <Search onSubmit={handleOnSearchSubmit} />
-      <List items={searchResult || localData} onClick={handleListItemClick} />
+      <List items={searchResult || localData} loading={loading} onClick={handleListItemClick} />
       <Style.Container>
-        {!searchResult && (
+        {(localData.length > 0 && !searchResult) && (
           <Style.LoadMoreWrapper>
-            <Style.ButtonLoadMore type="button" onClick={handleButtonLoadMoreClick}>Load more Pokémons</Style.ButtonLoadMore>
+            <Style.ButtonLoadMore type="button" onClick={handleButtonLoadMoreClick}>{loading ? 'Loading...' : 'Load more Pokémons'}</Style.ButtonLoadMore>
           </Style.LoadMoreWrapper>
         )}
       </Style.Container>

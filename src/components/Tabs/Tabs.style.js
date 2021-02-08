@@ -14,7 +14,7 @@ export const Wrapper = styled.div`
   flex: 1;
   flex-direction: column;
   overflow: hidden;
-  padding: 20px;
+  padding: ${({ theme }) => theme.spacings.md};
   width: 100%;
 `;
 
@@ -31,14 +31,14 @@ export const NavItem = styled.button`
   cursor: pointer;
   display: flex;
   flex: 1;
-  font-size: 16px;
-  font-weight: 400;
+  font-size: ${({ theme }) => theme.font.sizes.sm};
+  font-weight: ${({ theme }) => theme.font.weights.regular};
   justify-content: center;
-  line-height: 19px;
-  padding: 15px 0px;
+  line-height: ${({ theme }) => theme.font.heights.sm};
+  padding: ${({ theme }) => theme.spacings.sm} 0px;
 
   &.selected {
-    font-weight: 700;
+    font-weight: ${({ theme }) => theme.font.weights.bold};
   }
 `;
 

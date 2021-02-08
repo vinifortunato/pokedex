@@ -14,15 +14,15 @@ export const Page = styled.div`
 `;
 
 export const Container = styled(commonStyle.Container)`
-  padding-top: 20px;
+  padding-top: ${({ theme }) => theme.spacings.md};
 `;
 
 export const BackgroundText = styled.span`
   color: ${({ theme, textColor }) => theme.colors.backgroundTypes[textColor]};
-  font-size: 100px;
-  font-weight: 700;
+  font-size: ${({ theme }) => theme.font.sizes.xxl};
+  font-weight: ${({ theme }) => theme.font.weights.bold};
   left: 50%;
-  line-height: 119px;
+  line-height: ${({ theme }) => theme.font.heights.xl};
   pointer-events: none;
   position: absolute;
   text-align: center;
@@ -39,19 +39,19 @@ export const BackButton = styled.button`
   background-repeat: no-repeat;
   cursor: pointer;
   height: 20px;
-  padding: 5px;
+  padding: ${({ theme }) => theme.spacings.xxs};
   width: 20px;
 `;
 
 export const MessageContainer = styled.div`
   display: flex;
   justify-content: center;
-  padding: 50px 0px;
+  padding: ${({ theme }) => theme.spacings.xl} 0px;
 `;
 
 export const Message = styled.p`
-  color: #17171B;
-  font-size: 16px;
-  line-height: 19px;
+  color: ${({ theme }) => theme.colors.texts.black};
+  font-size: ${({ theme }) => theme.font.sizes.sm};
+  line-height: ${({ theme }) => theme.font.heights.sm};
   margin-bottom: 25px;
 `;

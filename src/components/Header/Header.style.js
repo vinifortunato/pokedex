@@ -7,7 +7,7 @@ export const Wrapper = styled.section`
   background-repeat: no-repeat;
   display: flex;
   flex: 1;
-  padding-top: 100px;
+  padding-top: ${({ theme }) => theme.spacings.xxl};
   position: relative;
 `;
 
@@ -16,21 +16,21 @@ export const Container = styled(commonStyle.Container)`
 `;
 
 export const Details = styled.div`
-  margin: 0px 10px;
+  margin: 0px ${({ theme }) => theme.spacings.xs};
 `;
 
 export const Title = styled.h1`
-  color: #17171B;
-  font-size: 32px;
+  color: ${({ theme }) => theme.colors.texts.black};
+  font-size: ${({ theme }) => theme.font.sizes.xl};
   font-weight: ${({ theme }) => theme.font.weights.bold};
-  line-height: 38px;
-  margin-bottom: 10px;
+  line-height: ${({ theme }) => theme.font.heights.lg};
+  margin-bottom: ${({ theme }) => theme.spacings.xs};
 `;
 
 export const Subtitle = styled.p`
-  color: #747476;
-  font-size: 16px;
+  color: ${({ theme }) => theme.colors.texts.gray};
+  font-size: ${({ theme }) => theme.font.sizes.sm};
   font-weight: ${({ theme }) => theme.font.weights.regular};
-  line-height: 19px;
+  line-height: ${({ theme }) => theme.font.heights.sm};
   margin-bottom: 25px;
 `;

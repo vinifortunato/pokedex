@@ -14,10 +14,10 @@ export const List = styled.ul`
   list-style: none;
 `;
 
-export const NotFound = styled.p`
-  color: #747476;
+export const Message = styled.p`
+  color: ${({ theme }) => theme.colors.texts.gray};
   display: flex;
   flex: 1;
   justify-content: center;
-  padding: 20px 20px;
+  padding: ${({ theme }) => theme.spacings.md};
 `;

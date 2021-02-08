@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import List from './List';
 
@@ -6,6 +6,12 @@ describe('List Component', () => {
   it('should render correctly', () => {
     render(<List />, { wrapper: global.wrapper });
     expect(screen.getByTestId('list')).toBeInTheDocument();
+  });
+
+  it('should render loading message correctly', () => {
+    render(<List loading />, { wrapper: global.wrapper });
+    const { getByText } = within(screen.getByTestId('list-message'));
+    expect(getByText('Loading, please wait...')).toBeInTheDocument();
   });
 
   it('should render items correctly', () => {

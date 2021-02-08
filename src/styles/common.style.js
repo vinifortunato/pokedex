@@ -3,8 +3,8 @@ import styled from 'styled-components';
 const Section = styled.section`
   display: flex;
   flex: 1;
-  padding: 20px 0px;
-  position: relative;
+  padding: ${({ theme }) => theme.spacings.md} 0px;
+  position: relative
 `;
 
 const Container = styled.div`
@@ -13,17 +13,13 @@ const Container = styled.div`
   flex: 1;
   margin-left: auto;
   margin-right: auto;
-  max-width: 1082px;
-  padding: 0px 10px;
-  @media (max-width: 1106px) {
+  max-width: ${({ theme }) => theme.grid.container};
+  padding: 0px ${({ theme }) => theme.spacings.xs};
+  @media (max-width: ${({ theme }) => theme.breakpoints.xl}) {
     max-width: 728px;
   }
 
-  @media (max-width: 752px) {
-    max-width: 660px;
-  }
-
-  @media (max-width: 752px) {
+  @media (max-width: ${({ theme }) => theme.breakpoints.lg}) {
     max-width: 660px;
   }
 `;

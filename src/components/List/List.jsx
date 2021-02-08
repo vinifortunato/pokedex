@@ -2,7 +2,9 @@ import PropTypes from 'prop-types';
 import ListItem from './ListItem';
 import * as Style from './List.style';
 
-const List = ({ emptyText, items, onClick }) => {
+const List = ({
+  emptyText, items, loading, loadingText, onClick,
+}) => {
   const map = items.map((item) => (
     <ListItem
       key={item.name}
@@ -19,7 +21,9 @@ const List = ({ emptyText, items, onClick }) => {
             {map}
           </Style.List>
         ) : (
-          <Style.NotFound>{emptyText}</Style.NotFound>
+          <Style.Message data-testid="list-message">
+            {loading ? loadingText : emptyText}
+          </Style.Message>
         )}
       </Style.Container>
     </Style.Section>
@@ -29,6 +33,8 @@ const List = ({ emptyText, items, onClick }) => {
 List.defaultProps = {
   emptyText: 'Pokémon not found!',
   items: [],
+  loading: false,
+  loadingText: 'Loading, please wait...',
   onClick: null,
 };
 
@@ -54,6 +60,8 @@ List.propTypes = {
       }).isRequired,
     }).isRequired,
   ),
+  loading: PropTypes.bool,
+  loadingText: PropTypes.string,
   onClick: PropTypes.func,
 };
 
