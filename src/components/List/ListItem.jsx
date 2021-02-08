@@ -22,7 +22,12 @@ const ListItem = ({ item, onClick }) => {
           <Style.Name>{item.name}</Style.Name>
           <Style.Tags>
             {item.types.map(({ type }) => (
-              <Tag key={type.name} label={type.name} backgroundColor={type.name} />
+              <Tag
+                color={type.name}
+                image={type.name}
+                key={type.name}
+                label={type.name}
+              />
             ))}
           </Style.Tags>
         </Style.Details>

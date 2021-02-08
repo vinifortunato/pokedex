@@ -17,7 +17,12 @@ const Resume = ({
             {types && (
               <>
                 {types.map(({ type }) => (
-                  <Tag key={type.name} label={type.name} backgroundColor={type.name} />
+                  <Tag
+                    color={type.name}
+                    image={type.name}
+                    key={type.name}
+                    label={type.name}
+                  />
                 ))}
               </>
             )}
@@ -41,10 +46,10 @@ Resume.propTypes = {
   image: PropTypes.string,
   types: PropTypes.arrayOf(
     PropTypes.shape({
-      slot: PropTypes.number.isRequired,
+      slot: PropTypes.number,
       type: PropTypes.shape({
         name: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
+        url: PropTypes.string,
       }),
     }),
   ),

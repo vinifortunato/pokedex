@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import { useState, useEffect, useCallback } from 'react';
 import * as Style from './Tabs.style';
 
-const Tabs = ({ defaultValue, tabs, featuredColor }) => {
-  const [selectedTab, setSelectedTab] = useState(defaultValue || tabs[0]?.id);
+const Tabs = ({ defaultValue, featuredColor, tabs }) => {
+  const [selectedTab, setSelectedTab] = useState(defaultValue);
 
   const getContentHeight = useCallback((tabId) => {
     const tabRef = document.getElementById(tabId);
@@ -67,8 +67,8 @@ const Tabs = ({ defaultValue, tabs, featuredColor }) => {
 };
 
 Tabs.defaultProps = {
-  defaultValue: null,
-  featuredColor: '#17171B',
+  defaultValue: 'tab-stats',
+  featuredColor: 'default',
   tabs: [],
 };
 

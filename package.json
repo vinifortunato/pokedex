@@ -10,13 +10,15 @@
     "url": "https://github.com/vinesky"
   },
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start",
     "lint": "yarn lint:js && yarn lint:css",
     "lint:js": "eslint './src/**/*.{js,jsx}'",
     "lint:css": "stylelint './src/**/*.{js,jsx}'",
-    "test": "jest"
+    "test": "jest",
+    "storybook": "start-storybook -s ./public -p 3001 --ci",
+    "storybook:build": "build-storybook"
   },
   "husky": {
     "hooks": {
@@ -35,6 +37,10 @@
     "styled-components": "^5.2.1"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^6.1.17",
+    "@storybook/addon-essentials": "^6.1.17",
+    "@storybook/addon-links": "^6.1.17",
+    "@storybook/react": "^6.1.17",
     "@testing-library/jest-dom": "^5.11.9",
     "@testing-library/react": "^11.2.5",
     "@testing-library/user-event": "^12.6.3",
