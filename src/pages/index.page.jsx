@@ -72,6 +72,10 @@ const Home = ({ initialData }) => {
     router.push(`/${item.name}`);
   }, [router]);
 
+  const handleOnHeaderClick = useCallback(() => {
+    setSearchResult(null);
+  }, []);
+
   const handleButtonLoadMoreClick = useCallback(() => {
     if (loading) {
       return;
@@ -94,7 +98,7 @@ const Home = ({ initialData }) => {
   return (
     <Style.Page>
       <Head title="Pokédex" />
-      <Header />
+      <Header onClick={handleOnHeaderClick} />
       <Search onSubmit={handleOnSearchSubmit} />
       <List items={searchResult || localData} loading={loading} onClick={handleListItemClick} />
       <Style.Container>

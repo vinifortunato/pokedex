@@ -4,6 +4,9 @@ export default {
   title: 'Components/Header',
   component: Header,
   argTypes: {
+    onClick: {
+      action: 'onClick',
+    },
     title: {
       control: 'text',
       defaultValue: 'Pokédex',
@@ -15,8 +18,8 @@ export default {
   },
 };
 
-export const Default = ({ title, subtitle }) => (
-  <Header title={title} subtitle={subtitle} />
+export const Default = ({ onClick, title, subtitle }) => (
+  <Header onClick={onClick} title={title} subtitle={subtitle} />
 );
 
 Default.defaultProps = Header.defaultProps;

@@ -21,10 +21,12 @@ export const Details = styled.div`
 
 export const Title = styled.h1`
   color: ${({ theme }) => theme.colors.texts.black};
+  cursor: pointer;
   font-size: ${({ theme }) => theme.font.sizes.xl};
   font-weight: ${({ theme }) => theme.font.weights.bold};
   line-height: ${({ theme }) => theme.font.heights.lg};
   margin-bottom: ${({ theme }) => theme.spacings.xs};
+  width: fit-content;
 `;
 
 export const Subtitle = styled.p`
