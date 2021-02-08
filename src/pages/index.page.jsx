@@ -55,7 +55,7 @@ const Home = ({ initialData }) => {
     const search = async () => {
       const response = await api.get(`/pokemon/${searchValue.toLowerCase()}`);
       setLoading(false);
-      if (!response) {
+      if (!response || !response.data.name) {
         setSearchResult([]);
         return;
       }
